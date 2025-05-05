@@ -16,12 +16,18 @@ JDumpSpiderGUI 是一个用于 Java 堆转储文件分析的工具，支持命�
 java -jar JDumpSpiderGUI-1.0-SNAPSHOT-full.jar [参数]
 ```
 
+![Console](./assets/Console.png)
+
 ### 2. GUI模式
+
 ```sh
 java -jar JDumpSpiderGUI-1.0-SNAPSHOT-full.jar --gui
 ```
 
+![GUI](./assets/GUI.png)
+
 ## 主要功能
+
 - 支持选择转储文件进行分析
 - 分析项下拉选择与全部浏览
 - 结果表格支持多行选择、右键复制整行/键/值
@@ -89,5 +95,4 @@ Extract sensitive information from heapdump file.
 欢迎提交PR或issue，完善功能和界面体验。
 ---
 作者: whwlsfb (Console) & S0cke3t (GUI)
-
 
