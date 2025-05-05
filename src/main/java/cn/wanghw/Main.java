@@ -12,7 +12,7 @@ import java.util.List;
 
 public class Main {
 
-    private File heapfile;
+    public File heapfile;
     private final List<String> flag = new LinkedList<String>();
     static PrintStream out = null;
 
@@ -59,8 +59,13 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
-        out = System.out;
-        run(args);
+        // 检查是否以GUI模式启动
+        if (args.length > 0 && args[0].equals("--gui")) {
+            GUI.main(args);
+        } else {
+            out = System.out;
+            run(args);
+        }
     }
 
     private ISpider[] allSpiders = new ISpider[]{
@@ -76,7 +81,6 @@ public class Main {
             new PropertySource02(),
             new PropertySource03(),
             new PropertySource04(),
-////            new JwtKey01(),
             new PropertySource05(),
             new EnvProperty01(),
             new OSS01(),

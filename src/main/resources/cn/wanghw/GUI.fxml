@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox prefHeight="600" prefWidth="1050" spacing="0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.wanghw.GUIController">
+   <children>
+   
+       <!-- 顶部菜单栏 -->
+       <MenuBar>
+           <menus>
+               <Menu text="文件">
+                   <items>
+                       <MenuItem fx:id="openMenuItem" onAction="#handleOpen" text="打开" />
+                   </items>
+               </Menu>
+               <Menu text="帮助">
+                   <items>
+                       <MenuItem fx:id="aboutMenuItem" onAction="#handleAbout" text="关于" />
+                   </items>
+               </Menu>
+           </menus>
+       </MenuBar>
+   
+       <!-- 功能区 -->
+       <HBox alignment="BASELINE_CENTER" fillHeight="false" style="-fx-background-color: #f5f5f5;">
+           <padding>
+               <Insets bottom="10.0" top="10.0" />
+           </padding>
+      <children>
+              <Label prefHeight="30.0" prefWidth="70.0" text="转储文件">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+              </Label>
+              <TextField fx:id="filePathField" editable="false" prefHeight="30.0" prefWidth="300.0">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </TextField>
+              <Button fx:id="selectFileButton" minHeight="30" onAction="#handleSelectFile" prefWidth="70" text="选择...">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+              <Label prefHeight="30.0" prefWidth="80.0" text="选择分析项">
+                  <padding>
+                      <Insets bottom="0" left="0" right="6" top="0" />
+                  </padding>
+               <font>
+                  <Font size="14.0" />
+               </font>
+              </Label>
+              <ComboBox fx:id="analysisSelector" minHeight="30" onAction="#handleAnalysisSelector" prefWidth="150" promptText="选择分析项">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </ComboBox>
+              <Button fx:id="analyzeButton" disable="true" minHeight="30" onAction="#handleAnalyze" prefWidth="70.0" text="分析">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+              <Button fx:id="exportButton" disable="true" minHeight="30" onAction="#handleExport" prefWidth="70.0" text="导出" />
+              <ProgressIndicator fx:id="progressIndicator" prefHeight="22" prefWidth="22" visible="false" />
+              <Label fx:id="statusLabel" text="就绪">
+                  <padding>
+                      <Insets bottom="0" left="8" right="0" top="0" />
+                  </padding>
+              </Label>
+      </children>
+       </HBox>
+   
+       <!-- 结果表格 -->
+       <TableView fx:id="resultTable" VBox.vgrow="always">
+           <columns>
+               <TableColumn fx:id="categoryColumn" prefWidth="150" text="分析项" />
+               <TableColumn fx:id="keyColumn" prefWidth="300" text="键" />
+               <TableColumn fx:id="valueColumn" prefWidth="500" text="值" />
+           </columns>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+       </TableView>
+   
+       <!-- 底部状态栏 -->
+       <HBox style="-fx-background-color: #f0f0f0;">
+           <padding>
+               <Insets bottom="5" left="5" right="5" top="5" />
+           </padding>
+      <children>
+              <Label fx:id="authorLabel" text="Console by whwlsfb  GUI by S0cke3t" HBox.hgrow="ALWAYS" />
+      </children>
+       </HBox>
+   </children>
+</VBox>
